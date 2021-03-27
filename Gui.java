@@ -31,7 +31,10 @@ public class Gui{
 		text.setEditable(false);
 		
 		
-		
+		createAcc.addActionListener(new createAccountListener());
+		//balance.addActionListener(new checkBalanceListener());
+		//addCash.addActionListener(new addCashListener());
+		//withdraw.addActionListener(new withdrawListener());
 		
 		lowerPanel.setLayout(new GridLayout(0,1));
 		lowerPanel.add(createAcc);
@@ -50,6 +53,14 @@ public class Gui{
 		frame.setSize(550,600);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public class createAccountListener implements ActionListener{
+		public void actionPerformed(ActionEvent ev){
+			//Account acc = new Account(0);
+			//text.setText("0");
+			CreateAccount ac = new CreateAccount();
+			ac.go();
+		}
 	}
 	
 }
