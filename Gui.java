@@ -12,6 +12,7 @@ public class Gui{
 	private JButton balance;
 	private JButton addCash;
 	private JButton withdraw;	
+	private JTextArea text;
 	
 	public void go(){
 		frame = new JFrame("Bank app");
@@ -22,21 +23,31 @@ public class Gui{
 		addCash = new JButton("Add funds");
 		withdraw = new JButton("Withdraw funds");
 		
-		BoxLayout layout = new BoxLayout(lowerPanel, BoxLayout.Y_AXIS);
+		Font font = new Font("sanserif", Font.BOLD, 24);
 		
-		lowerPanel.setLayout(layout);
+		text = new JTextArea(5,25);
+		text.setFont(font);
+		text.setLineWrap(true);
+		text.setEditable(false);
+		
+		
+		
+		
+		lowerPanel.setLayout(new GridLayout(0,1));
 		lowerPanel.add(createAcc);
 		lowerPanel.add(balance);
 		lowerPanel.add(addCash);
 		lowerPanel.add(withdraw);
 		
-		lowerPanel.setAlignmentY(createAcc.CENTER_ALIGNMENT);
+		
+		topPanel.add(text);
+		
 		
 		lowerPanel.setBackground(Color.black);
 		
 		frame.getContentPane().add(BorderLayout.NORTH,topPanel);
-		frame.getContentPane().add(BorderLayout.SOUTH, lowerPanel);
-		frame.setSize(500,600);
+		frame.getContentPane().add(BorderLayout.CENTER, lowerPanel);
+		frame.setSize(550,600);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
